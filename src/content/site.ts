@@ -305,9 +305,9 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "contain",
         images: [
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-1.jpg", alt: "Photogrammetry scan of the park corner, angle 1" },
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-2.jpg", alt: "Photogrammetry scan of the park corner, angle 2" },
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-3.jpg", alt: "Photogrammetry scan of the park corner, angle 3" },
+          { src: "/images/case-studies/piccola-libreria/photogrammetry-1.png", alt: "Photogrammetry scan of the park corner, angle 1" },
+          { src: "/images/case-studies/piccola-libreria/photogrammetry-2.png", alt: "Photogrammetry scan of the park corner, angle 2" },
+          { src: "/images/case-studies/piccola-libreria/photogrammetry-3.png", alt: "Photogrammetry scan of the park corner, angle 3" },
         ],
         caption:
           "To best understand the scale of the design intervention in relation to other elements of the park, a 3d model was created through photogrammetry. The model was focused solely on the corner section of the park with bench",
