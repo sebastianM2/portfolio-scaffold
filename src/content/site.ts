@@ -313,7 +313,7 @@ export const caseStudies: CaseStudy[] = [
           "To best understand the scale of the design intervention in relation to other elements of the park, a 3d model was created through photogrammetry. The model was focused solely on the corner section of the park with bench",
       },
       { type: "divider" },
-      { type: "heading", text: "Outcome" },
+      { type: "subheading", text: "Outcome" },
       {
         type: "fullImage",
         fit: "contain",
