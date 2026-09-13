@@ -28,7 +28,7 @@ export default function Home() {
           fill="none"
           aria-hidden="true"
         >
-          <circle cx="41" cy="41" r="40" stroke="black" strokeWidth="1" />
+          <circle cx="41" cy="41" r="40" stroke="black" strokeWidth="5" />
         </svg>
       </header>
 
