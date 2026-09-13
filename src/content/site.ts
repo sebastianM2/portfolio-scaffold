@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "imageText",
         imageSide: "left",
-        fit: "cover",
+        fit: "contain",
         image: {
           src: "/images/case-studies/piccola-libreria/field-research-bench.jpg",
           alt: "A man sitting alone on a park bench in Piazza dei Quiriti",
@@ -273,7 +273,7 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "cover",
         images: [
-          { src: "/images/case-studies/piccola-libreria/ref-ai-trashcan-wide.jpg", alt: "AI-generated concept of a book-sharing trash can structure in a park setting" },
+          { src: "/images/case-studies/piccola-libreria/Cesto-Transparent.png", alt: "AI-generated concept of a book-sharing trash can structure in a park setting" },
           { src: "/images/case-studies/piccola-libreria/ref-ai-library.jpg", alt: "AI-generated concept of a round book-sharing structure in the piazza" },
           { src: "/images/case-studies/piccola-libreria/ref-ai-trashcan-closeup.jpg", alt: "Close-up AI-generated concept of the book-sharing trash can structure" },
         ],
@@ -285,14 +285,14 @@ export const caseStudies: CaseStudy[] = [
         type: "imageText",
         imageSide: "right",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/concept-sketch-1.jpg", alt: "Early concept sketch of a pavilion-like structure" },
+        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-1", alt: "Early concept sketch of a pavilion-like structure" },
         text: "To the left is a sketch book page studying what form language I thought would be best to move forward with.",
       },
       {
         type: "imageText",
         imageSide: "left",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/concept-sketch-2.jpg", alt: "Concept sketch exploring a hinged opening mechanism" },
+        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-3", alt: "Concept sketch exploring a hinged opening mechanism" },
         text: "As the form started to take shape, I continued exploring how to increase the intervention's visual interest and how users would interact with it.",
       },
       {
