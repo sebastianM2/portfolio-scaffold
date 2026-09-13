@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/* =====================================================
+   DESIGN TOKENS — pulled directly from Figma via MCP
+   (node 1:2, "Home Page"). Do not hand-edit these values;
+   if the design changes, re-pull via Figma MCP.
+   ===================================================== */
+:root {
+  --color-background: #ffffff;   /* White Background */
+  --color-foreground: #000000;   /* Black text (headings) */
+  --color-body-text: #333333;    /* Text Stroke / body copy */
+  --color-accent: #653400;       /* Heading Accent — used on project numbers + button */
+
+  --font-heading: var(--font-zilla-slab), serif;   /* Zilla Slab Bold Italic — section headings */
+  --font-body: var(--font-urbanist), sans-serif;   /* Urbanist — name, subheads, body */
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-body-text: var(--color-body-text);
+  --color-accent: var(--color-accent);
+  --font-sans: var(--font-body);
+  --font-heading: var(--font-heading);
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-body-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Respect users who prefer reduced motion (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visible focus states everywhere (accessibility) */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
