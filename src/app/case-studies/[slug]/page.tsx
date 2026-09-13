@@ -26,6 +26,37 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+// Renders the "otherProjects" byline (e.g. "Piccola Libreria - Heritage
+// Furniture - Knows Eyewear") as individually clickable links to each
+// matching case study, preserving the original " - " separators as
+// plain text so the visual format matches the Figma mockup exactly.
+function OtherProjectsLinks({ text }: { text: string }) {
+  const names = text.split(" - ");
+  return (
+    <p className="font-body font-normal text-[#858585] text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px]">
+      {names.map((name, i) => {
+        const trimmed = name.trim();
+        const match = caseStudies.find((c) => c.title === trimmed);
+        return (
+          <span key={trimmed}>
+            {match ? (
+              <Link
+                href={`/case-studies/${match.slug}`}
+                className="hover:text-black hover:underline underline-offset-4 transition-colors"
+              >
+                {name}
+              </Link>
+            ) : (
+              name
+            )}
+            {i < names.length - 1 && " - "}
+          </span>
+        );
+      })}
+    </p>
+  );
+}
+
 function Block({ block }: { block: CaseStudyBlock }) {
   switch (block.type) {
     case "divider":
@@ -195,9 +226,7 @@ export default async function CaseStudyPage({ params }: Props) {
         ))}
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full p-2.5">
-          <p className="font-body font-normal text-[#858585] text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px]">
-            {caseStudy.otherProjects}
-          </p>
+          <OtherProjectsLinks text={caseStudy.otherProjects} />
           {/*
             Case study PDF download: hits the API route, which renders
             a fresh, size-optimized PDF of this specific case study on demand.
