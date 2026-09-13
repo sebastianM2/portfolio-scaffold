@@ -273,7 +273,7 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "cover",
         images: [
-          { src: "/images/case-studies/piccola-libreria/Cesto-Transparent.png", alt: "AI-generated concept of a book-sharing trash can structure in a park setting" },
+          { src: "images/case-studies/piccola-libreria/Cesto Transparent.png", alt: "AI-generated concept of a book-sharing trash can structure in a park setting" },
           { src: "/images/case-studies/piccola-libreria/ref-ai-library.jpg", alt: "AI-generated concept of a round book-sharing structure in the piazza" },
           { src: "/images/case-studies/piccola-libreria/ref-ai-trashcan-closeup.jpg", alt: "Close-up AI-generated concept of the book-sharing trash can structure" },
         ],
