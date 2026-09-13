@@ -285,14 +285,14 @@ export const caseStudies: CaseStudy[] = [
         type: "imageText",
         imageSide: "right",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-1", alt: "Early concept sketch of a pavilion-like structure" },
+        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-1.jpeg", alt: "Early concept sketch of a pavilion-like structure" },
         text: "To the left is a sketch book page studying what form language I thought would be best to move forward with.",
       },
       {
         type: "imageText",
         imageSide: "left",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-3", alt: "Concept sketch exploring a hinged opening mechanism" },
+        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-3.jpeg", alt: "Concept sketch exploring a hinged opening mechanism" },
         text: "As the form started to take shape, I continued exploring how to increase the intervention's visual interest and how users would interact with it.",
       },
       {
