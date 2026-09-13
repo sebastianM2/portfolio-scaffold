@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { renderToBuffer, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import { renderToBuffer, Document, Page, Text, View, Image as PdfImage, StyleSheet } from "@react-pdf/renderer";
 // import { Font } from "@react-pdf/renderer"; // uncomment when registering a custom font below
 import { caseStudies } from "@/content/site";
 import type { CaseStudyBlock } from "@/content/site";
@@ -11,6 +11,11 @@ import type { CaseStudyBlock } from "@/content/site";
 //   family: "YourHeadingFont",
 //   src: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/fonts/YourHeadingFont-Regular.ttf`,
 // });
+
+// Case studies with many images (e.g. Heritage Furniture's ~40 photos)
+// can take a little longer to render as a PDF since every image is
+// fetched during generation. 30s covers this comfortably on Vercel.
+export const maxDuration = 30;
 
 const styles = StyleSheet.create({
   page: {
@@ -26,7 +31,11 @@ const styles = StyleSheet.create({
   summary: {
     fontSize: 12,
     color: "#555555",
-    marginBottom: 24,
+    marginBottom: 12,
+  },
+  heroImage: {
+    marginTop: 4,
+    marginBottom: 16,
   },
   sectionHeading: {
     fontSize: 15,
@@ -62,17 +71,48 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "#555555",
     marginTop: 4,
+    marginBottom: 8,
+  },
+  imageRow: {
+    flexDirection: "row",
+    gap: 8,
+    marginBottom: 6,
+  },
+  imageRowItem: {
+    flex: 1,
+  },
+  fullImage: {
+    marginBottom: 6,
+    maxHeight: 320,
+    objectFit: "contain",
+  },
+  imageTextRow: {
+    flexDirection: "row",
+    gap: 12,
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  imageTextImage: {
+    width: 180,
+  },
+  imageTextText: {
+    flex: 1,
+    fontSize: 11,
   },
 });
 
-// Renders a text-only, vector PDF — no rasterized screenshots — which keeps
-// file size minimal (kilobytes, not megabytes) regardless of how many
-// images the web page has. Images are intentionally omitted from the PDF
-// to keep it small and fast to generate; the case study images live on
-// the live page. If you want a couple of key images included, add an
-// <Image> node here with a pre-compressed (~1200px wide, JPEG q=70-80)
-// version — that is the single biggest lever on output size.
-function renderBlock(block: CaseStudyBlock, i: number) {
+// Renders a PDF that mirrors the live case study page, images included.
+// Images are fetched by @react-pdf/renderer directly from their live
+// site URLs during generation (it supports remote http(s) sources
+// natively), so this route just needs to pass absolute URLs — no
+// manual downloading or base64 encoding required. Because every image
+// is embedded at its web-optimized (not further compressed) size, the
+// resulting PDF's size roughly tracks the total weight of that case
+// study's images — a few hundred KB for lighter case studies, up to a
+// few MB for image-heavy ones like Heritage Furniture.
+function renderBlock(block: CaseStudyBlock, i: number, origin: string) {
+  const abs = (src: string) => `${origin}${src}`;
+
   switch (block.type) {
     case "divider":
       return <View key={i} style={styles.divider} />;
@@ -102,30 +142,42 @@ function renderBlock(block: CaseStudyBlock, i: number) {
         </Text>
       );
     case "imageRow":
-      return block.caption ? (
-        <Text key={i} style={styles.caption}>
-          {block.caption}
-        </Text>
-      ) : null;
+      return (
+        <View key={i} wrap={false}>
+          <View style={styles.imageRow}>
+            {block.images.map((img) => (
+              <PdfImage key={img.src} src={abs(img.src)} style={styles.imageRowItem} />
+            ))}
+          </View>
+          {block.caption && <Text style={styles.caption}>{block.caption}</Text>}
+        </View>
+      );
     case "imageText":
       return (
-        <Text key={i} style={styles.body}>
-          {block.text}
-        </Text>
+        <View key={i} style={styles.imageTextRow} wrap={false}>
+          {block.imageSide === "left" && (
+            <PdfImage src={abs(block.image.src)} style={styles.imageTextImage} />
+          )}
+          <Text style={styles.imageTextText}>{block.text}</Text>
+          {block.imageSide === "right" && (
+            <PdfImage src={abs(block.image.src)} style={styles.imageTextImage} />
+          )}
+        </View>
       );
     case "fullImage":
-      return block.caption ? (
-        <Text key={i} style={styles.caption}>
-          {block.caption}
-        </Text>
-      ) : null;
+      return (
+        <View key={i} wrap={false}>
+          <PdfImage src={abs(block.image.src)} style={styles.fullImage} />
+          {block.caption && <Text style={styles.caption}>{block.caption}</Text>}
+        </View>
+      );
     default:
       return null;
   }
 }
 
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ slug: string }> }
 ) {
   const { slug } = await params;
@@ -135,14 +187,17 @@ export async function GET(
     return NextResponse.json({ error: "Case study not found" }, { status: 404 });
   }
 
+  const origin = req.nextUrl.origin;
+
   const doc = (
     <Document title={caseStudy.title} producer="Portfolio Site">
       <Page size="A4" style={styles.page} wrap>
         <Text style={styles.title}>{caseStudy.title}</Text>
         <Text style={styles.summary}>{caseStudy.summary}</Text>
+        <PdfImage src={`${origin}${caseStudy.heroImage.src}`} style={styles.heroImage} />
         <Text style={styles.sectionHeading}>Project Brief</Text>
         <Text style={styles.body}>{caseStudy.brief}</Text>
-        {caseStudy.blocks.map(renderBlock)}
+        {caseStudy.blocks.map((block, i) => renderBlock(block, i, origin))}
       </Page>
     </Document>
   );
