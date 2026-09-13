@@ -69,7 +69,7 @@ export default function Home() {
                     <p className="font-heading italic font-bold text-[#653400] text-4xl sm:text-[64px] tracking-[1.6px] sm:tracking-[3.2px] whitespace-nowrap shrink-0">
                       {project.number}
                     </p>
-                    <p className="font-body font-normal text-[#333] text-2xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] sm:w-[324px]">
+                    <p className="font-body font-normal text-[#333] text-2xl sm:text-[36px] tracking-[3.6px] sm:tracking-[9.6px] sm:w-[324px]">
                       {project.title}
                     </p>
                   </div>
@@ -84,9 +84,9 @@ export default function Home() {
 
         <hr className="w-full border-t border-black" aria-hidden="true" />
 
-        <section aria-labelledby="education-heading">
+        <section aria-labelledby="education-body">
           <h2
-            id="education-heading"
+            id="education-body"
             className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-6"
           >
             Education
@@ -105,9 +105,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section aria-labelledby="experience-heading">
+        <section aria-labelledby="experience-body">
           <h2
-            id="experience-heading"
+            id="experience-body"
             className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-6"
           >
             Experience
