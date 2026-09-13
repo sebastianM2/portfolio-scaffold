@@ -54,7 +54,7 @@ export default function Home() {
         <section aria-labelledby="projects-heading">
           <h2
             id="projects-heading"
-            className="font-heading italic font-bold text-black text-4xl sm:text-[64px] tracking-[1.6px] sm:tracking-[3.2px] mb-12"
+            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-12"
           >
             Projects
           </h2>
@@ -87,7 +87,7 @@ export default function Home() {
         <section aria-labelledby="education-heading">
           <h2
             id="education-heading"
-            className="font-heading italic font-bold text-black text-4xl sm:text-[64px] tracking-[1.6px] sm:tracking-[3.2px] mb-6"
+            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-6"
           >
             Education
           </h2>
@@ -108,7 +108,7 @@ export default function Home() {
         <section aria-labelledby="experience-heading">
           <h2
             id="experience-heading"
-            className="font-heading italic font-bold text-black text-4xl sm:text-[64px] tracking-[1.6px] sm:tracking-[3.2px] mb-6"
+            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-6"
           >
             Experience
           </h2>

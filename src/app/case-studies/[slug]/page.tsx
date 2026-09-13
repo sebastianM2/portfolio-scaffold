@@ -212,11 +212,11 @@ export default async function CaseStudyPage({ params }: Props) {
         <section className="flex flex-col items-center gap-9 w-full" aria-labelledby="brief-heading">
           <h2
             id="brief-heading"
-            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px]"
+            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] w-full"
           >
             Project Brief
           </h2>
-          <p className="font-body font-normal text-black text-base sm:text-2xl text-center tracking-[0.6px] sm:tracking-[1.2px]">
+          <p className="font-body font-normal text-black text-base sm:text-2xl text-center tracking-[0.6px] sm:tracking-[1.2px] w-full">
             {caseStudy.brief}
           </p>
         </section>
