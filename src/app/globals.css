@@ -30,9 +30,14 @@ body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
-}
+/* NOTE: headings intentionally have no global font-family rule here.
+   Each heading element sets font-body or font-heading explicitly via
+   its Tailwind classes (see Block component and page components).
+   An earlier blanket "h1,h2,h3,h4,h5,h6 { font-family: ... }" rule
+   lived outside Tailwind's cascade layers, which meant it silently
+   beat every font-body utility class on every heading tag sitewide —
+   this is why Research/Design/Outcome and other section titles kept
+   rendering in the wrong font even after their classes were fixed. */
 
 /* Respect users who prefer reduced motion (accessibility) */
 @media (prefers-reduced-motion: reduce) {
