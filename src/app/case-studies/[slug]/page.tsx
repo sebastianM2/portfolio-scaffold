@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function OtherProjectsLinks({ text }: { text: string }) {
   const names = text.split(" - ");
   return (
-    <p className="font-body font-normal text-[#858585] text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px]">
+    <p className="font-body font-normal text-[#858585] text-[14.4px] sm:text-[21.6px] tracking-[0.5px] sm:tracking-[1.1px]">
       {names.map((name, i) => {
         const trimmed = name.trim();
         const match = caseStudies.find((c) => c.title === trimmed);
@@ -64,31 +64,31 @@ function Block({ block }: { block: CaseStudyBlock }) {
 
     case "heading":
       return (
-        <h2 className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px]">
+        <h2 className="font-body font-normal text-black text-[27px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px]">
           {block.text}
         </h2>
       );
 
     case "subheading":
       return (
-        <h3 className="font-body font-light text-black text-xl sm:text-[36px] tracking-[3.6px] sm:tracking-[7.2px]">
+        <h3 className="font-body font-light text-black text-[18px] sm:text-[32.4px] tracking-[2.9px] sm:tracking-[6.5px]">
           {block.text}
         </h3>
       );
 
     case "paragraph":
       return (
-        <p className="font-body font-normal text-black text-base sm:text-2xl text-center tracking-[0.6px] sm:tracking-[1.2px]">
+        <p className="font-body font-normal text-black text-[14.4px] sm:text-[21.6px] text-center tracking-[0.5px] sm:tracking-[1.1px]">
           {block.text}
         </p>
       );
 
     case "quote":
       return (
-        <p className="font-body italic text-black text-xl sm:text-[32px] text-center tracking-[3px] sm:tracking-[6.4px] break-words">
+        <p className="font-body italic text-black text-[18px] sm:text-[28.8px] text-center tracking-[2.7px] sm:tracking-[5.8px] break-words">
           &ldquo;{block.text}&rdquo;
           {block.attribution && (
-            <span className="block font-normal not-italic text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px] mt-2">
+            <span className="block font-normal not-italic text-[14.4px] sm:text-[21.6px] tracking-[0.5px] sm:tracking-[1.1px] mt-[6.5px]">
               {block.attribution}
             </span>
           )}
@@ -97,8 +97,8 @@ function Block({ block }: { block: CaseStudyBlock }) {
 
     case "imageRow":
       return (
-        <div className="flex flex-col items-center gap-9 w-full">
-          <div className="flex flex-col sm:flex-row gap-8 items-center justify-center w-full">
+        <div className="flex flex-col items-center gap-[32.4px] w-full">
+          <div className="flex flex-col sm:flex-row gap-[18px] items-center justify-center w-full">
             {block.images.map((img) => (
               <div key={img.src} className="relative w-full sm:flex-1 aspect-square">
                 <Image
@@ -112,7 +112,7 @@ function Block({ block }: { block: CaseStudyBlock }) {
             ))}
           </div>
           {block.caption && (
-            <p className="font-body font-normal text-black text-base sm:text-2xl text-center tracking-[0.6px] sm:tracking-[1.2px]">
+            <p className="font-body font-normal text-black text-[14.4px] sm:text-[21.6px] text-center tracking-[0.5px] sm:tracking-[1.1px]">
               {block.caption}
             </p>
           )}
@@ -121,7 +121,7 @@ function Block({ block }: { block: CaseStudyBlock }) {
 
     case "imageText": {
       const imageEl = (
-        <div className="relative w-full sm:w-[624px] h-[240px] sm:h-[385px] shrink-0">
+        <div className="relative w-full sm:w-[561.6px] h-[216px] sm:h-[346.5px] shrink-0">
           <Image
             src={block.image.src}
             alt={block.image.alt}
@@ -132,12 +132,12 @@ function Block({ block }: { block: CaseStudyBlock }) {
         </div>
       );
       const textEl = (
-        <p className="flex-1 font-body font-normal text-black text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px] whitespace-pre-line">
+        <p className="flex-1 font-body font-normal text-black text-[14.4px] sm:text-[21.6px] tracking-[0.5px] sm:tracking-[1.1px] whitespace-pre-line">
           {block.text}
         </p>
       );
       return (
-        <div className="flex flex-col sm:flex-row gap-8 sm:gap-[50px] items-center justify-center w-full">
+        <div className="flex flex-col sm:flex-row gap-[18px] sm:gap-[45px] items-center justify-center w-full">
           {block.imageSide === "left" ? (
             <>
               {imageEl}
@@ -155,8 +155,8 @@ function Block({ block }: { block: CaseStudyBlock }) {
 
     case "fullImage":
       return (
-        <div className="flex flex-col items-center gap-9 w-full">
-          <div className="relative w-full h-[320px] sm:h-[850px]">
+        <div className="flex flex-col items-center gap-[32.4px] w-full">
+          <div className="relative w-full h-[288px] sm:h-[765px]">
             <Image
               src={block.image.src}
               alt={block.image.alt}
@@ -166,7 +166,7 @@ function Block({ block }: { block: CaseStudyBlock }) {
             />
           </div>
           {block.caption && (
-            <p className="font-body font-normal text-black text-base sm:text-2xl text-center tracking-[0.6px] sm:tracking-[1.2px]">
+            <p className="font-body font-normal text-black text-[14.4px] sm:text-[21.6px] text-center tracking-[0.5px] sm:tracking-[1.1px]">
               {block.caption}
             </p>
           )}
@@ -182,19 +182,19 @@ export default async function CaseStudyPage({ params }: Props) {
 
   return (
     <>
-      <header className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 px-6 sm:px-8 py-2.5 max-w-[1440px] mx-auto">
-        <Link href="/" className="flex items-center h-16 sm:h-20 shrink-0">
-          <div className="relative shrink-0 size-16 sm:size-20">
+      <header className="flex flex-col sm:flex-row items-center sm:justify-between gap-[14.4px] px-[21.6px] sm:px-[28.8px] py-[9px] max-w-[1296px] mx-auto">
+        <Link href="/" className="flex items-center h-[57.6px] sm:h-[72px] shrink-0">
+          <div className="relative shrink-0 size-[57.6px] sm:size-[72px]">
             <Image src="/images/logo.png" alt={nav.logoText} fill className="object-contain" priority />
           </div>
         </Link>
-        <svg className="shrink-0 size-16 sm:size-[82px]" viewBox="0 0 82 82" fill="none" aria-hidden="true">
+        <svg className="shrink-0 size-[57.6px] sm:size-[73.8px]" viewBox="0 0 82 82" fill="none" aria-hidden="true">
           <circle cx="41" cy="41" r="40" stroke="black" strokeWidth="1" />
         </svg>
       </header>
 
-      <main id="main-content" className="px-6 sm:px-8 max-w-[1440px] mx-auto flex flex-col gap-12 py-10">
-        <h1 className="font-heading italic font-bold text-black text-4xl sm:text-[64px] tracking-[1.6px] sm:tracking-[3.2px]">
+      <main id="main-content" className="px-[21.6px] sm:px-[28.8px] max-w-[1296px] mx-auto flex flex-col gap-[43.2px] py-[32.4px]">
+        <h1 className="font-heading italic font-bold text-black text-[32.4px] sm:text-[57.6px] tracking-[1.4px] sm:tracking-[2.9px]">
           {caseStudy.title}
         </h1>
 
@@ -209,14 +209,14 @@ export default async function CaseStudyPage({ params }: Props) {
           />
         </div>
 
-        <section className="flex flex-col items-center gap-9 w-full" aria-labelledby="brief-heading">
+        <section className="flex flex-col items-center gap-[32.4px] w-full" aria-labelledby="brief-heading">
           <h2
             id="brief-heading"
-            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] w-full"
+            className="font-body font-normal text-black text-[27px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px] w-full"
           >
             Project Brief
           </h2>
-          <p className="font-body font-normal text-black text-base sm:text-2xl text-center tracking-[0.6px] sm:tracking-[1.2px] w-full">
+          <p className="font-body font-normal text-black text-[14.4px] sm:text-[21.6px] text-center tracking-[0.5px] sm:tracking-[1.1px] w-full">
             {caseStudy.brief}
           </p>
         </section>
@@ -225,7 +225,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <Block key={i} block={block} />
         ))}
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full p-2.5">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-[14.4px] w-full p-[9px]">
           <OtherProjectsLinks text={caseStudy.otherProjects} />
           {/*
             Case study PDF download: hits the API route, which renders
@@ -234,17 +234,17 @@ export default async function CaseStudyPage({ params }: Props) {
           <a
             href={`/api/case-study-pdf/${caseStudy.slug}`}
             download={`${caseStudy.slug}.pdf`}
-            className="inline-block bg-[#653400] px-2.5 py-2 rounded-[1px]"
+            className="inline-block bg-[#653400] px-[9px] py-[6.5px] rounded-[1px]"
           >
-            <span className="font-body font-normal text-2xl text-white tracking-[1.2px]">
+            <span className="font-body font-normal text-[21.6px] text-white tracking-[1.1px]">
               {caseStudy.downloadPdfLabel}
             </span>
           </a>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full py-4">
-          <p className="font-body font-normal text-black text-2xl tracking-[1.2px]">{caseStudy.byline}</p>
-          <div className="relative w-16 h-16 shrink-0">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-[14.4px] w-full py-[14.4px]">
+          <p className="font-body font-normal text-black text-[21.6px] tracking-[1.1px]">{caseStudy.byline}</p>
+          <div className="relative w-[57.6px] h-[57.6px] shrink-0">
             <Image src="/images/logo.png" alt="" fill className="object-contain" aria-hidden="true" />
           </div>
         </div>
