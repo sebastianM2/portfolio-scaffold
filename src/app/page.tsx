@@ -5,10 +5,10 @@ import { hero, nav, projects, education, experience } from "@/content/site";
 export default function Home() {
   return (
     <>
-      <header className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 px-6 py-2.5 max-w-[1376px] mx-auto">
-        <div className="flex items-center gap-2.5">
+      <header className="flex flex-col sm:flex-row items-center sm:justify-between gap-[14.4px] px-[21.6px] py-[9px] max-w-[1238.4px] mx-auto">
+        <div className="flex items-center gap-[9px]">
           {/* Wax seal logo — original source file (not PDF-extracted) */}
-          <div className="relative shrink-0 size-16 sm:size-20">
+          <div className="relative shrink-0 size-[57.6px] sm:size-[72px]">
             <Image
               src="/images/logo.png"
               alt="Sebastian Alessio Peyton logo"
@@ -17,13 +17,13 @@ export default function Home() {
               priority
             />
           </div>
-          <p className="font-body font-normal text-[#333] text-2xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] underline decoration-[11%] break-words">
+          <p className="font-body font-normal text-[#333] text-[21.6px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px] underline decoration-[11%] break-words">
             {nav.logoText}
           </p>
         </div>
         {/* Simple circle outline — reproduced as inline SVG rather than a raster asset */}
         <svg
-          className="shrink-0 size-16 sm:size-[82px]"
+          className="shrink-0 size-[57.6px] sm:size-[73.8px]"
           viewBox="0 0 82 82"
           fill="none"
           aria-hidden="true"
@@ -32,7 +32,7 @@ export default function Home() {
         </svg>
       </header>
 
-      <main id="main-content" className="px-6 max-w-[1392px] mx-auto flex flex-col gap-12 py-10">
+      <main id="main-content" className="px-[21.6px] max-w-[1252.8px] mx-auto flex flex-col gap-[43.2px] py-[32.4px]">
         {/* Hero portrait — original B&W source file (not PDF-extracted), cropped/optimized for web */}
         <div className="relative w-full aspect-[1392/750]">
           <Image
@@ -45,7 +45,7 @@ export default function Home() {
           />
         </div>
 
-        <p className="font-body italic text-black text-xl sm:text-[32px] text-center tracking-[3px] sm:tracking-[6.4px] break-words">
+        <p className="font-body italic text-black text-[18px] sm:text-[28.8px] text-center tracking-[2.7px] sm:tracking-[5.8px] break-words">
           {hero.tagline}
         </p>
 
@@ -54,26 +54,26 @@ export default function Home() {
         <section aria-labelledby="projects-heading">
           <h2
             id="projects-heading"
-            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-12"
+            className="font-body font-normal text-black text-[27px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px] mb-[43.2px]"
           >
             Projects
           </h2>
-          <ul className="flex flex-col gap-12">
+          <ul className="flex flex-col gap-[43.2px]">
             {projects.map((project) => (
               <li key={project.slug} className="w-full">
                 <Link
                   href={`/case-studies/${project.slug}`}
-                  className="flex flex-col sm:flex-row gap-4 sm:gap-8 sm:items-center w-full"
+                  className="flex flex-col sm:flex-row gap-[14.4px] sm:gap-[18px] sm:items-center w-full"
                 >
-                  <div className="flex flex-1 gap-4 sm:gap-8 items-start min-w-0 sm:min-w-[400px]">
-                    <p className="font-heading italic font-bold text-[#653400] text-4xl sm:text-[64px] tracking-[1.6px] sm:tracking-[3.2px] whitespace-nowrap shrink-0">
+                  <div className="flex flex-1 gap-[14.4px] sm:gap-[18px] items-start min-w-0 sm:min-w-[360px]">
+                    <p className="font-heading italic font-bold text-[#653400] text-[32.4px] sm:text-[57.6px] tracking-[1.4px] sm:tracking-[2.9px] whitespace-nowrap shrink-0">
                       {project.number}
                     </p>
-                    <p className="font-body font-normal text-[#333] text-2xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] sm:w-[324px]">
+                    <p className="font-body font-normal text-[#333] text-[21.6px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px] sm:w-[291.6px]">
                       {project.title}
                     </p>
                   </div>
-                  <p className="flex-1 font-body font-light text-[#333] text-lg sm:text-[36px] tracking-[3.6px] sm:tracking-[7.2px]">
+                  <p className="flex-1 font-body font-light text-[#333] text-[16.2px] sm:text-[32.4px] tracking-[2.9px] sm:tracking-[6.5px]">
                     {project.meta}
                   </p>
                 </Link>
@@ -87,17 +87,17 @@ export default function Home() {
         <section aria-labelledby="education-heading">
           <h2
             id="education-heading"
-            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-6"
+            className="font-body font-normal text-black text-[27px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px] mb-[21.6px]"
           >
             Education
           </h2>
-          <div className="flex flex-col sm:flex-row items-start justify-between gap-8 text-[#333]">
+          <div className="flex flex-col sm:flex-row items-start justify-between gap-[18px] text-[#333]">
             {education.map((entry) => (
-              <div key={entry.school} className="flex flex-col gap-6 px-2.5 py-[15px] sm:w-[605px]">
-                <p className="font-body font-light text-2xl sm:text-[36px] tracking-[3.6px] sm:tracking-[7.2px]">
+              <div key={entry.school} className="flex flex-col gap-[21.6px] px-[9px] py-[13.5px] sm:w-[544.5px]">
+                <p className="font-body font-light text-[21.6px] sm:text-[32.4px] tracking-[2.9px] sm:tracking-[6.5px]">
                   {entry.school}
                 </p>
-                <p className="font-body font-normal text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px] sm:w-[469px]">
+                <p className="font-body font-normal text-[14.4px] sm:text-[21.6px] tracking-[0.5px] sm:tracking-[1.1px] sm:w-[422.1px]">
                   {entry.degree}
                 </p>
               </div>
@@ -108,17 +108,17 @@ export default function Home() {
         <section aria-labelledby="experience-heading">
           <h2
             id="experience-heading"
-            className="font-body font-normal text-black text-3xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] mb-6"
+            className="font-body font-normal text-black text-[27px] sm:text-[43.2px] tracking-[4.3px] sm:tracking-[8.6px] mb-[21.6px]"
           >
             Experience
           </h2>
-          <div className="flex flex-col gap-6 text-black">
+          <div className="flex flex-col gap-[21.6px] text-black">
             {experience.map((entry) => (
-              <div key={entry.company} className="flex flex-col gap-6">
-                <p className="font-body font-light text-2xl sm:text-[36px] tracking-[3.6px] sm:tracking-[7.2px]">
+              <div key={entry.company} className="flex flex-col gap-[21.6px]">
+                <p className="font-body font-light text-[21.6px] sm:text-[32.4px] tracking-[2.9px] sm:tracking-[6.5px]">
                   {entry.company}
                 </p>
-                <p className="font-body font-normal text-base sm:text-2xl tracking-[0.6px] sm:tracking-[1.2px]">
+                <p className="font-body font-normal text-[14.4px] sm:text-[21.6px] tracking-[0.5px] sm:tracking-[1.1px]">
                   {entry.role}
                 </p>
               </div>
@@ -134,9 +134,9 @@ export default function Home() {
           <a
             href="/resume.pdf"
             download
-            className="inline-block bg-[#653400] px-2.5 py-2 rounded-[1px]"
+            className="inline-block bg-[#653400] px-[9px] py-[6.5px] rounded-[1px]"
           >
-            <span className="font-body font-normal text-2xl text-white tracking-[1.2px]">
+            <span className="font-body font-normal text-[21.6px] text-white tracking-[1.1px]">
               {hero.resumeButtonLabel}
             </span>
           </a>
