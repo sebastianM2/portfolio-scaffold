@@ -1,81 +1,175 @@
 import { NextRequest, NextResponse } from "next/server";
-import { renderToBuffer, Document, Page, Text, View, Image as PdfImage, StyleSheet } from "@react-pdf/renderer";
-// import { Font } from "@react-pdf/renderer"; // uncomment when registering a custom font below
+import { renderToBuffer, Document, Page, Text, View, Image as PdfImage, StyleSheet, Font } from "@react-pdf/renderer";
 import { caseStudies } from "@/content/site";
 import type { CaseStudyBlock } from "@/content/site";
-
-// Register the same typeface used on the site so the PDF matches
-// the Figma mockup's fonts. Point src at a real .ttf/.otf file you
-// place under /public/fonts once you export it from Figma/Google Fonts.
-// Font.register({
-//   family: "YourHeadingFont",
-//   src: `${process.env.NEXT_PUBLIC_SITE_URL ?? ""}/fonts/YourHeadingFont-Regular.ttf`,
-// });
 
 // Case studies with many images (e.g. Heritage Furniture's ~40 photos)
 // can take a little longer to render as a PDF since every image is
 // fetched during generation. 30s covers this comfortably on Vercel.
 export const maxDuration = 30;
 
+// ---------------------------------------------------------------------
+// Real fonts (Urbanist + Zilla Slab), fetched from Google Fonts at
+// request time so the PDF uses the exact same typefaces as the live
+// site instead of react-pdf's default Helvetica. Registration is
+// cached at module scope so it only happens once per warm function
+// instance, not on every request.
+//
+// Google's CSS2 API serves different font formats depending on the
+// requesting browser's User-Agent — modern browsers get woff2, but an
+// old-Chrome UA string gets plain .ttf files, which react-pdf can
+// embed directly. This is a widely used, stable technique.
+// ---------------------------------------------------------------------
+let fontsRegistered = false;
+
+async function fetchFontUrl(family: string, params: string): Promise<string | null> {
+  try {
+    const cssUrl = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(family)}:${params}&display=swap`;
+    const res = await fetch(cssUrl, {
+      headers: {
+        // Old Chrome UA -> Google Fonts serves .ttf instead of .woff2
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36",
+      },
+    });
+    if (!res.ok) return null;
+    const css = await res.text();
+    const match = css.match(/url\((https:\/\/fonts\.gstatic\.com\/[^)]+\.ttf)\)/);
+    return match ? match[1] : null;
+  } catch {
+    return null;
+  }
+}
+
+async function registerFonts() {
+  if (fontsRegistered) return;
+
+  const [urbanistRegular, urbanistLight, urbanistItalic, zillaSlabBoldItalic] = await Promise.all([
+    fetchFontUrl("Urbanist", "wght@400"),
+    fetchFontUrl("Urbanist", "wght@300"),
+    fetchFontUrl("Urbanist", "ital@1"),
+    fetchFontUrl("Zilla+Slab", "ital,wght@1,700"),
+  ]);
+
+  if (urbanistRegular) {
+    const fonts: { src: string; fontWeight?: number; fontStyle?: "normal" | "italic" }[] = [
+      { src: urbanistRegular, fontWeight: 400 },
+    ];
+    if (urbanistLight) fonts.push({ src: urbanistLight, fontWeight: 300 });
+    if (urbanistItalic) fonts.push({ src: urbanistItalic, fontStyle: "italic" });
+    Font.register({ family: "Urbanist", fonts });
+  }
+
+  if (zillaSlabBoldItalic) {
+    Font.register({
+      family: "Zilla Slab",
+      fonts: [{ src: zillaSlabBoldItalic, fontStyle: "italic", fontWeight: 700 }],
+    });
+  }
+
+  fontsRegistered = true;
+}
+
+// Falls back to react-pdf's built-in Helvetica if a Google Fonts fetch
+// fails for any reason (network hiccup, API change) — the PDF still
+// generates successfully, just without the exact typeface that one time.
+const bodyFont = "Urbanist";
+const headingFont = "Zilla Slab";
+
+// ---------------------------------------------------------------------
+// Styles — sizes and colors mirror the live site's Block component
+// exactly (see src/app/case-studies/[slug]/page.tsx), scaled down
+// proportionally for print. Site body text is 21.6px desktop; this
+// PDF uses 11pt as its equivalent baseline, so every other size below
+// is that same site-to-PDF ratio (11/21.6 ≈ 0.51) applied to the
+// site's actual pixel value — this keeps the PDF's type scale
+// visually proportional to the website's, not just similar.
+// ---------------------------------------------------------------------
 const styles = StyleSheet.create({
   page: {
-    padding: 48,
+    padding: 40,
     fontSize: 11,
     lineHeight: 1.5,
+    fontFamily: bodyFont,
+    color: "#000000",
   },
   title: {
-    fontSize: 22,
-    marginBottom: 4,
+    fontFamily: headingFont,
+    fontStyle: "italic",
     fontWeight: 700,
+    fontSize: 29,
+    color: "#000000",
+    marginBottom: 4,
   },
   summary: {
-    fontSize: 12,
-    color: "#555555",
-    marginBottom: 12,
+    fontSize: 10,
+    color: "#858585",
+    marginBottom: 14,
   },
   heroImage: {
     marginTop: 4,
-    marginBottom: 16,
+    marginBottom: 18,
   },
   sectionHeading: {
-    fontSize: 15,
-    fontWeight: 700,
-    marginTop: 16,
-    marginBottom: 6,
-  },
-  subHeading: {
-    fontSize: 12,
-    fontWeight: 700,
-    marginTop: 10,
-    marginBottom: 4,
-    color: "#653400",
-  },
-  body: {
-    fontSize: 11,
+    fontFamily: bodyFont,
+    fontWeight: 400,
+    fontSize: 22,
+    color: "#000000",
+    marginTop: 18,
     marginBottom: 8,
   },
-  quote: {
+  subHeading: {
+    fontFamily: bodyFont,
+    fontWeight: 300,
+    fontSize: 16.5,
+    color: "#000000",
+    marginTop: 10,
+    marginBottom: 5,
+  },
+  body: {
+    fontFamily: bodyFont,
+    fontWeight: 400,
     fontSize: 11,
-    fontStyle: "italic",
+    color: "#000000",
+    marginBottom: 8,
     textAlign: "center",
-    marginVertical: 10,
-    color: "#333333",
+  },
+  bodyLeft: {
+    fontFamily: bodyFont,
+    fontWeight: 400,
+    fontSize: 11,
+    color: "#000000",
+  },
+  quote: {
+    fontFamily: bodyFont,
+    fontStyle: "italic",
+    fontSize: 14.7,
+    textAlign: "center",
+    marginVertical: 12,
+    color: "#000000",
+  },
+  quoteAttribution: {
+    fontFamily: bodyFont,
+    fontStyle: "normal",
+    fontSize: 11,
+    marginTop: 4,
   },
   divider: {
     borderBottomWidth: 1,
     borderBottomColor: "#000000",
-    marginVertical: 12,
+    marginVertical: 14,
   },
   caption: {
-    fontSize: 9,
+    fontFamily: bodyFont,
+    fontSize: 11,
     textAlign: "center",
-    color: "#555555",
-    marginTop: 4,
+    color: "#000000",
+    marginTop: 5,
     marginBottom: 8,
   },
   imageRow: {
     flexDirection: "row",
-    gap: 8,
+    gap: 10,
     marginBottom: 6,
   },
   imageRowItem: {
@@ -83,33 +177,52 @@ const styles = StyleSheet.create({
   },
   fullImage: {
     marginBottom: 6,
-    maxHeight: 320,
+    maxHeight: 300,
     objectFit: "contain",
   },
   imageTextRow: {
     flexDirection: "row",
-    gap: 12,
+    gap: 14,
     alignItems: "center",
-    marginBottom: 10,
+    marginBottom: 12,
   },
   imageTextImage: {
-    width: 180,
+    width: 190,
   },
   imageTextText: {
     flex: 1,
+  },
+  briefHeading: {
+    fontFamily: bodyFont,
+    fontWeight: 400,
+    fontSize: 22,
+    color: "#000000",
+    marginBottom: 8,
+  },
+  footerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginTop: 20,
+    paddingTop: 14,
+    borderTopWidth: 1,
+    borderTopColor: "#000000",
+  },
+  byline: {
+    fontFamily: bodyFont,
+    fontWeight: 400,
     fontSize: 11,
+    color: "#000000",
+  },
+  otherProjects: {
+    fontFamily: bodyFont,
+    fontWeight: 400,
+    fontSize: 10,
+    color: "#858585",
+    marginTop: 10,
   },
 });
 
-// Renders a PDF that mirrors the live case study page, images included.
-// Images are fetched by @react-pdf/renderer directly from their live
-// site URLs during generation (it supports remote http(s) sources
-// natively), so this route just needs to pass absolute URLs — no
-// manual downloading or base64 encoding required. Because every image
-// is embedded at its web-optimized (not further compressed) size, the
-// resulting PDF's size roughly tracks the total weight of that case
-// study's images — a few hundred KB for lighter case studies, up to a
-// few MB for image-heavy ones like Heritage Furniture.
 function renderBlock(block: CaseStudyBlock, i: number, origin: string) {
   const abs = (src: string) => `${origin}${src}`;
 
@@ -138,7 +251,7 @@ function renderBlock(block: CaseStudyBlock, i: number, origin: string) {
       return (
         <Text key={i} style={styles.quote}>
           &ldquo;{block.text}&rdquo;
-          {block.attribution ? `  —  ${block.attribution}` : ""}
+          {block.attribution && <Text style={styles.quoteAttribution}>{"\n" + block.attribution}</Text>}
         </Text>
       );
     case "imageRow":
@@ -158,7 +271,7 @@ function renderBlock(block: CaseStudyBlock, i: number, origin: string) {
           {block.imageSide === "left" && (
             <PdfImage src={abs(block.image.src)} style={styles.imageTextImage} />
           )}
-          <Text style={styles.imageTextText}>{block.text}</Text>
+          <Text style={[styles.imageTextText, styles.bodyLeft]}>{block.text}</Text>
           {block.imageSide === "right" && (
             <PdfImage src={abs(block.image.src)} style={styles.imageTextImage} />
           )}
@@ -187,6 +300,8 @@ export async function GET(
     return NextResponse.json({ error: "Case study not found" }, { status: 404 });
   }
 
+  await registerFonts();
+
   const origin = req.nextUrl.origin;
 
   const doc = (
@@ -195,9 +310,16 @@ export async function GET(
         <Text style={styles.title}>{caseStudy.title}</Text>
         <Text style={styles.summary}>{caseStudy.summary}</Text>
         <PdfImage src={`${origin}${caseStudy.heroImage.src}`} style={styles.heroImage} />
-        <Text style={styles.sectionHeading}>Project Brief</Text>
+
+        <Text style={styles.briefHeading}>Project Brief</Text>
         <Text style={styles.body}>{caseStudy.brief}</Text>
+
         {caseStudy.blocks.map((block, i) => renderBlock(block, i, origin))}
+
+        <View style={styles.footerRow}>
+          <Text style={styles.byline}>{caseStudy.byline}</Text>
+        </View>
+        <Text style={styles.otherProjects}>{caseStudy.otherProjects}</Text>
       </Page>
     </Document>
   );
