@@ -228,11 +228,12 @@ export default async function CaseStudyPage({ params }: Props) {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-[14.4px] w-full p-[9px]">
           <OtherProjectsLinks text={caseStudy.otherProjects} />
           {/*
-            Case study PDF download: hits the API route, which renders
-            a fresh, size-optimized PDF of this specific case study on demand.
+            Case study PDF download: static, pre-made file in /public,
+            same pattern as the homepage resume download. No server
+            rendering involved — this is just a plain file link.
           */}
           <a
-            href={`/api/case-study-pdf/${caseStudy.slug}`}
+            href={`/case-study-pdfs/${caseStudy.slug}.pdf`}
             download={`${caseStudy.slug}.pdf`}
             className="inline-block bg-[#653400] px-[9px] py-[6.5px] rounded-[1px]"
           >
