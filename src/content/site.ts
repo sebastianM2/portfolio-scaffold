@@ -72,7 +72,7 @@ export const education: EducationEntry[] = [
 export type ExperienceEntry = { company: string; role: string };
 
 export const experience: ExperienceEntry[] = [
-  { company: "Knows Eyewear", role: "Industrial Design Consultant (2022-2022)" },
+  { company: "Knows Eyewear", role: "Product Management Intern (2022-2022)" },
   { company: "Follicle Hair Studios", role: "Contract User Experience Designer (2023-2023)" },
   { company: "SimpleTire LLC", role: "Product Management Intern (2023-2024)" },
 ];
@@ -231,7 +231,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "imageText",
         imageSide: "left",
-        fit: "contain",
+        fit: "cover",
         image: {
           src: "/images/case-studies/piccola-libreria/field-research-bench.jpg",
           alt: "A man sitting alone on a park bench in Piazza dei Quiriti",
@@ -253,7 +253,10 @@ export const caseStudies: CaseStudy[] = [
         text: "To better understand the scale of the design intervention a plan of the area was found from the city of Rome.",
       },
       { type: "subheading", text: "User Journey" },
-      
+      {
+        type: "paragraph",
+        text: "To better understand the problem that was presented by the benches I created a user journey map showing where a potential pain point can be found",
+      },
       {
         type: "fullImage",
         fit: "contain",
@@ -261,7 +264,7 @@ export const caseStudies: CaseStudy[] = [
           src: "/images/case-studies/piccola-libreria/user-journey.png",
           alt: "Park experience journey map for a single visitor to Piazza dei Quiriti",
         },
-        caption: "To better understand the problem that was presented by the benches I created a user journey map showing where a potential pain point can be found.",
+        caption: "This is a caption to a 3 image collage, use this caption to add context to the images above.",
       },
       { type: "divider" },
       { type: "heading", text: "Design" },
@@ -270,7 +273,7 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "cover",
         images: [
-          { src: "images/case-studies/piccola-libreria/Cesto Transparent.png", alt: "AI-generated concept of a book-sharing trash can structure in a park setting" },
+          { src: "/images/case-studies/piccola-libreria/ref-ai-trashcan-wide.jpg", alt: "AI-generated concept of a book-sharing trash can structure in a park setting" },
           { src: "/images/case-studies/piccola-libreria/ref-ai-library.jpg", alt: "AI-generated concept of a round book-sharing structure in the piazza" },
           { src: "/images/case-studies/piccola-libreria/ref-ai-trashcan-closeup.jpg", alt: "Close-up AI-generated concept of the book-sharing trash can structure" },
         ],
@@ -282,14 +285,14 @@ export const caseStudies: CaseStudy[] = [
         type: "imageText",
         imageSide: "right",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-1.jpeg", alt: "Early concept sketch of a pavilion-like structure" },
-        text: "To the right is a sketch book page studying what form language I thought would be best to move forward with.",
+        image: { src: "/images/case-studies/piccola-libreria/concept-sketch-1.jpg", alt: "Early concept sketch of a pavilion-like structure" },
+        text: "To the left is a sketch book page studying what form language I thought would be best to move forward with.",
       },
       {
         type: "imageText",
         imageSide: "left",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-3.jpeg", alt: "Concept sketch exploring a hinged opening mechanism" },
+        image: { src: "/images/case-studies/piccola-libreria/concept-sketch-2.jpg", alt: "Concept sketch exploring a hinged opening mechanism" },
         text: "As the form started to take shape, I continued exploring how to increase the intervention's visual interest and how users would interact with it.",
       },
       {
@@ -302,15 +305,15 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "contain",
         images: [
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-1.png", alt: "Photogrammetry scan of the park corner, angle 1" },
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-2.png", alt: "Photogrammetry scan of the park corner, angle 2" },
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-3.png", alt: "Photogrammetry scan of the park corner, angle 3" },
+          { src: "/images/case-studies/piccola-libreria/photogrammetry-1.jpg", alt: "Photogrammetry scan of the park corner, angle 1" },
+          { src: "/images/case-studies/piccola-libreria/photogrammetry-2.jpg", alt: "Photogrammetry scan of the park corner, angle 2" },
+          { src: "/images/case-studies/piccola-libreria/photogrammetry-3.jpg", alt: "Photogrammetry scan of the park corner, angle 3" },
         ],
         caption:
-          "To better understand the scale of the design intervention in relation to other elements of the park, a 3d model was created through photogrammetry. The model was focused solely on the corner section of the park with a bench",
+          "To best understand the scale of the design intervention in relation to other elements of the park, a 3d model was created through photogrammetry. The model was focused solely on the corner section of the park with bench",
       },
       { type: "divider" },
-      { type: "subheading", text: "Outcome" },
+      { type: "heading", text: "Outcome" },
       {
         type: "fullImage",
         fit: "contain",
@@ -318,7 +321,7 @@ export const caseStudies: CaseStudy[] = [
           src: "/images/case-studies/piccola-libreria/outcome.jpg",
           alt: "Final rendered design of the book-sharing structure placed in context in the piazza",
         },
-        caption: "The final design was presented to small group of potential users with mixed results. Users reported that they were interested in the idea, however felt that the form of the design intervention could be further refined to better communicated the objects function.",
+        caption: "The design intervention has not yet been tested with users.",
       },
     ],
   },
@@ -344,7 +347,7 @@ export const caseStudies: CaseStudy[] = [
         imageSide: "left",
         fit: "contain",
         image: { src: "/images/case-studies/knows-eyewear/idea-map.jpg", alt: "Idea map breaking down the parts of sunglasses" },
-        text: "Before starting the designing phase an idea map was created that explored the different parts of sunglasses. I tried to understand how the different parts of sunglasses could be manipulated to create a unique design aesthetic.",
+        text: "Before starting the designing stage I created an idea map that explored the different parts of sunglasses. I tried to understand how the different parts of sunglasses could be manipulated to create a unique design aesthetic.",
       },
       {
         type: "fullImage",
@@ -362,7 +365,7 @@ export const caseStudies: CaseStudy[] = [
           { src: "/images/case-studies/knows-eyewear/ref-3.jpg", alt: "Ray-Ban Wayfarer detail photograph, used as a materials/lighting reference" },
         ],
         caption:
-          "To guide the creative vision for the project a mood board was created that highlights not only the form of the glasses but also aesthetics and materials. Reference photography (Ray-Ban campaign and product images) is used here for research purposes only.",
+          "To guide the creative vision for the project a mood board was created that highlights not only the form of the glasses but also aesthetics and materials. Reference photography (Ray-Ban campaign and product images) is used here for research purposes only and is not my own work.",
       },
       {
         type: "quote",
