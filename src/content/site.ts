@@ -28,7 +28,7 @@ export type Project = {
   slug: string;
 };
 
-// Note: numbering is sequential (01-04) per the site owner's request.
+// Note: numbering is sequential (01-05) per the site owner's request.
 export const projects: Project[] = [
   {
     number: "01",
@@ -38,18 +38,24 @@ export const projects: Project[] = [
   },
   {
     number: "02",
+    title: "Good Pistachios",
+    meta: "Sustainable Packaging/Service Design/2025",
+    slug: "good-pistachios",
+  },
+  {
+    number: "03",
     title: "Heritage Furniture",
     meta: "Furniture/Physical Prototyping/2024",
     slug: "heritage-furniture",
   },
   {
-    number: "03",
+    number: "04",
     title: "Knows Eyewear",
     meta: "Eyewear/Industrial Design/2023",
     slug: "knows-eyewear",
   },
   {
-    number: "04",
+    number: "05",
     title: "Brush Buddy",
     meta: "Consumer Product/Interaction/2022",
     slug: "brush-buddy",
@@ -117,7 +123,7 @@ export const caseStudies: CaseStudy[] = [
     heroImage: { src: "/images/case-studies/brush-buddy/hero.jpg", alt: "Brush Buddy product render" },
     brief:
       "The goal for this project was to create a new and innovative design for the Native brand focusing in the areas of self care and hygiene. My focus for this project was specifically in children\u2019s dental hygiene.",
-    otherProjects: "Piccola Libreria - Heritage Furniture - Knows Eyewear",
+    otherProjects: "Piccola Libreria - Good Pistachios - Heritage Furniture - Knows Eyewear",
     byline: "Brush Buddy by Sebastian Alessio Peyton (2022)",
     downloadPdfLabel: "Download this case study",
     blocks: [
@@ -221,7 +227,7 @@ export const caseStudies: CaseStudy[] = [
     },
     brief:
       "The Goal for this project was to design an outdoor urban design intervention in one of the historic neighborhoods of Rome. For my project I was assigned to work within the neighborhood of Prati, with a focus on the Piazza Dei Quiriti.",
-    otherProjects: "Brush Buddy - Heritage Furniture - Knows Eyewear",
+    otherProjects: "Brush Buddy - Good Pistachios - Heritage Furniture - Knows Eyewear",
     byline: "Piccola Libreria by Sebastian Alessio Peyton (2026)",
     downloadPdfLabel: "Download this case study",
     blocks: [
@@ -335,7 +341,7 @@ export const caseStudies: CaseStudy[] = [
     },
     brief:
       "The goal of this project was to revise the design of sunglasses made by Knows Eyewear. They wanted to renew their aesthetic language while maintaining the functionality of their proprietary design.",
-    otherProjects: "Piccola Libreria - Heritage Furniture - Brush Buddy",
+    otherProjects: "Piccola Libreria - Good Pistachios - Heritage Furniture - Brush Buddy",
     byline: "Knows Eyewear Redesign by Sebastian Alessio Peyton (2023)",
     downloadPdfLabel: "Download this case study",
     blocks: [
@@ -439,7 +445,7 @@ export const caseStudies: CaseStudy[] = [
     },
     brief:
       "The goal for this project was to create a furniture collection of 3 unique items: A chair, A lamp, A Side Table The theme of the collection was to highlight the ways that interaction with an object can effect its aesthetic qualities.",
-    otherProjects: "Piccola Libreria - Knows Eyewear - Brush Buddy",
+    otherProjects: "Piccola Libreria - Good Pistachios - Knows Eyewear - Brush Buddy",
     byline: "Heritage Furniture by Sebastian Alessio Peyton (2024)",
     downloadPdfLabel: "Download this case study",
     blocks: [
@@ -605,6 +611,138 @@ export const caseStudies: CaseStudy[] = [
           alt: "The 3 prototypes on display at the Drexel Westphal exhibition",
         },
         caption: "The 3 prototypes would be presented at the Drexel Westphal as part of the exhibition on student work throughout the Westphal Antoinette College of Media and Design",
+      },
+    ],
+  },
+  {
+    slug: "good-pistachios",
+    title: "Good Pistachios",
+    summary: "Sustainable Packaging/Service Design/2025",
+    heroImage: {
+      src: "/images/case-studies/good-pistachios/hero.jpg",
+      alt: "Good Pistachios packaging bag with pistachios falling into it",
+    },
+    brief:
+      "The goal for this project was to design a sustainable design intervention meant to address waste within a food system. The focus of this project is on the pistachio food system within the United States of America.",
+    otherProjects: "Piccola Libreria - Heritage Furniture - Knows Eyewear - Brush Buddy",
+    byline: "Good Pistachios by Sebastian Alessio Peyton & Ekin Su Ekinci (2025)",
+    downloadPdfLabel: "Download this case study",
+    blocks: [
+      { type: "divider" },
+      { type: "heading", text: "Research" },
+      { type: "subheading", text: "Problem definition" },
+      {
+        type: "fullImage",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/problem-definition.jpg",
+          alt: "Problem definition chart covering the pistachio supply chain, stakeholders, and industry problems",
+        },
+        caption:
+          "The first step of the process was to better understand what problems were present within the supply chain of pistachio farming within the United States. Our initial research led us to understand that a point of focus would be the end consumer waste that is produced from the consumption of pistachios",
+      },
+      {
+        type: "quote",
+        text: "If the most waste is produced during the end of the supply chain, we need to investigate if there are any opportunities to minimize the waste earlier.",
+      },
+      { type: "subheading", text: "Journey Map" },
+      {
+        type: "fullImage",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/journey-map.jpg",
+          alt: "Pistachio snack journey map outlining critical points across the supply chain",
+        },
+        caption:
+          "The journey map outlines critical points where a design intervention could be introduced to reduce waste within the pistachio supply chain",
+      },
+      { type: "subheading", text: "Persona" },
+      {
+        type: "imageText",
+        imageSide: "left",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/persona.jpg",
+          alt: "Target Users and Personas: Marta, Alessandro, and Giovanna, with their goals for a sustainable pistachio product",
+        },
+        text: "Once we understood the supply chain we also studied the main customers of pistachios in America, to the left are personas that are created based on snack pistachio consumer data",
+      },
+      { type: "divider" },
+      { type: "heading", text: "Design" },
+      { type: "subheading", text: "Design Concept" },
+      {
+        type: "imageRow",
+        fit: "contain",
+        images: [
+          { src: "/images/case-studies/good-pistachios/design-concept-sketch-1.jpg", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
+          { src: "/images/case-studies/good-pistachios/design-concept-sketch-2.jpg", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
+        ],
+        caption:
+          "Our team decided that we would have the most impact on pistachio waste by creating a consumer facing design intervention. we began designing different packaging solutions that address how a consumer can mitigate the waste that is created from snack pistachios",
+      },
+      { type: "subheading", text: "Design Concept" },
+      {
+        type: "fullImage",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/concept-sheet.jpg",
+          alt: "Concept sheet covering morphology, technology, and function of the Good Pistachios packaging system",
+        },
+        caption:
+          "Above is a concept sheet that explains how the final design can help address the waste the is generated from snack pistachio products",
+      },
+      {
+        type: "fullImage",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/packaging-render.jpg",
+          alt: "3D render of the Good Pistachios packaging",
+        },
+        caption: "Along with design 3D renders of the packaging were created to communicate the design of packaging",
+      },
+      { type: "divider" },
+      { type: "heading", text: "Business Plan" },
+      {
+        type: "fullImage",
+        fit: "cover",
+        image: {
+          src: "/images/case-studies/good-pistachios/business-model-canvas.jpg",
+          alt: "Business Model Canvas for the Good Pistachios packaging service",
+        },
+        caption:
+          "As part of the project to understand how our proposal would affect the existing pistachio snack industry a business model was created. That business model was synthesized utilizing the Business Model Canvas above.",
+      },
+      {
+        type: "fullImage",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/competitive-analysis.jpg",
+          alt: "Competitive analysis comparing Good Pistachios against Wonderful Pistachios and Verde Dorato",
+        },
+        caption:
+          "Once the business plan was defined a competitive analysis was also created to highlight how the design intervention fills gaps that are currently missed from major pistachio snack producers",
+      },
+      {
+        type: "fullImage",
+        fit: "contain",
+        image: {
+          src: "/images/case-studies/good-pistachios/system-map.jpg",
+          alt: "System map showing stakeholders in the B2B packaging service for pistachio processing plants",
+        },
+        caption:
+          "Along with the business model canvas this graphic outlines exactly how different stakeholders would be affected by the proposed design intervention; both negatively and positively.",
+      },
+      { type: "divider" },
+      { type: "heading", text: "Outcome" },
+      {
+        type: "fullImage",
+        fit: "cover",
+        image: {
+          src: "/images/case-studies/good-pistachios/outcome.jpg",
+          alt: "Good Pistachios packaging and resealable pouch staged on a table for validation",
+        },
+        caption:
+          "The proposal was presented to sustainable business experts and design professionals. The idea garnered some interest but must be further refined.",
       },
     ],
   },
