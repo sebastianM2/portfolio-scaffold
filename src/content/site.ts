@@ -671,8 +671,8 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "contain",
         images: [
-          { src: "/images/case-studies/Good-pistachios/design-concept-sketch-1.jpg", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
-          { src: "/images/case-studies/Good-pistachios/design-concept-sketch-2.jpg", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
+          { src: "/images/case-studies/Good-pistachios/Product Sketch 1.png", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
+          { src: "/images/case-studies/Good-pistachios/Product Sketch 2.png", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
         ],
         caption:
           "Our team decided that we would have the most impact on pistachio waste by creating a consumer facing design intervention. we began designing different packaging solutions that address how a consumer can mitigate the waste that is created from snack pistachios",
