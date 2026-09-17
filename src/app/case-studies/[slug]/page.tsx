@@ -194,7 +194,7 @@ export default async function CaseStudyPage({ params }: Props) {
       </header>
 
       <main id="main-content" className="px-[21.6px] sm:px-[28.8px] max-w-[1296px] mx-auto flex flex-col gap-[43.2px] py-[32.4px]">
-        <h1 className="font-heading italic font-bold text-black text-[32.4px] sm:text-[57.6px] tracking-[1.4px] sm:tracking-[2.9px]">
+        <h1 className="font-body font-black text-black text-[32.4px] sm:text-[57.6px]">
           {caseStudy.title}
         </h1>
 

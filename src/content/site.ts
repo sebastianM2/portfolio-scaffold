@@ -288,14 +288,14 @@ export const caseStudies: CaseStudy[] = [
         type: "imageText",
         imageSide: "right",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page 1.jpeg", alt: "Early concept sketch of a pavilion-like structure" },
+        image: { src: "/images/case-studies/piccola-libreria/sketch-page-1.jpeg", alt: "Early concept sketch of a pavilion-like structure" },
         text: "To the right is a sketch book page studying what form language I thought would be best to move forward with.",
       },
       {
         type: "imageText",
         imageSide: "left",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page 3.jpeg", alt: "Concept sketch exploring a hinged opening mechanism" },
+        image: { src: "/images/case-studies/piccola-libreria/sketch-page-3.jpeg", alt: "Concept sketch exploring a hinged opening mechanism" },
         text: "As the form started to take shape, I continued exploring how to increase the intervention's visual interest and how users would interact with it.",
       },
       {
@@ -671,8 +671,8 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "contain",
         images: [
-          { src: "/images/case-studies/good-pistachios/Product Sketch 1.png", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
-          { src: "/images/case-studies/good-pistachios/Product Sketch 2.png", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
+          { src: "/images/case-studies/good-pistachios/design-concept-sketch-1.jpg", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
+          { src: "/images/case-studies/good-pistachios/design-concept-sketch-2.jpg", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
         ],
         caption:
           "Our team decided that we would have the most impact on pistachio waste by creating a consumer facing design intervention. we began designing different packaging solutions that address how a consumer can mitigate the waste that is created from snack pistachios",
