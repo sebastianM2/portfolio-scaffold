@@ -30,14 +30,30 @@ body {
   font-family: var(--font-body);
 }
 
-/* NOTE: headings intentionally have no global font-family rule here.
-   Each heading element sets font-body or font-heading explicitly via
-   its Tailwind classes (see Block component and page components).
-   An earlier blanket "h1,h2,h3,h4,h5,h6 { font-family: ... }" rule
-   lived outside Tailwind's cascade layers, which meant it silently
-   beat every font-body utility class on every heading tag sitewide —
-   this is why Research/Design/Outcome and other section titles kept
-   rendering in the wrong font even after their classes were fixed. */
+/* Default heading typography: Urbanist Black (matches the current
+   Figma spec, e.g. case study titles). This lives inside Tailwind's
+   @layer base, so it's intentionally LOW priority — any element's own
+   Tailwind utility classes (font-normal, font-light, font-heading,
+   etc.) will correctly override it, e.g. the "Research/Design/Outcome"
+   section headings and "Field Research"-style subheadings, which set
+   their own weight explicitly. This is different from an earlier,
+   buggy version of this rule that lived OUTSIDE any cascade layer and
+   therefore silently beat every utility class sitewide regardless of
+   specificity — that bug is why section titles kept rendering in the
+   wrong font even after their classes were fixed. Keeping this rule
+   inside @layer base avoids repeating that mistake. */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-body);
+    font-weight: 900;
+  }
+}
+
+/* NOTE: the --font-heading token (Zilla Slab) is kept for now but is
+   currently unused sitewide — all case study titles were switched to
+   Urbanist Black to match the current Figma design. Safe to remove
+   the Zilla Slab font import in layout.tsx if it's confirmed unused
+   going forward. */
 
 /* Respect users who prefer reduced motion (accessibility) */
 @media (prefers-reduced-motion: reduce) {
