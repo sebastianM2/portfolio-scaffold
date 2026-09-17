@@ -288,14 +288,14 @@ export const caseStudies: CaseStudy[] = [
         type: "imageText",
         imageSide: "right",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-1.jpeg", alt: "Early concept sketch of a pavilion-like structure" },
+        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page 1.jpeg", alt: "Early concept sketch of a pavilion-like structure" },
         text: "To the right is a sketch book page studying what form language I thought would be best to move forward with.",
       },
       {
         type: "imageText",
         imageSide: "left",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page-3.jpeg", alt: "Concept sketch exploring a hinged opening mechanism" },
+        image: { src: "/images/case-studies/piccola-libreria/Sketch-Page 3.jpeg", alt: "Concept sketch exploring a hinged opening mechanism" },
         text: "As the form started to take shape, I continued exploring how to increase the intervention's visual interest and how users would interact with it.",
       },
       {
@@ -308,9 +308,9 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "contain",
         images: [
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-1.png", alt: "Photogrammetry scan of the park corner, angle 1" },
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-2.png", alt: "Photogrammetry scan of the park corner, angle 2" },
-          { src: "/images/case-studies/piccola-libreria/photogrammetry-3.png", alt: "Photogrammetry scan of the park corner, angle 3" },
+          { src: "/images/case-studies/piccola-libreria/Photogrametry Rendering Cleaned Left.png", alt: "Photogrammetry scan of the park corner, angle 1" },
+          { src: "/images/case-studies/piccola-libreria/Photogrametry Rendering Cleaned top.png", alt: "Photogrammetry scan of the park corner, angle 2" },
+          { src: "/images/case-studies/piccola-libreria/Photogrametry Rendering Cleaned.png", alt: "Photogrammetry scan of the park corner, angle 3" },
         ],
         caption:
           "To better understand the scale of the design intervention in relation to other elements of the park, a 3d model was created through photogrammetry. The model was focused solely on the corner section of the park with bench",
@@ -616,7 +616,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Good Pistachios",
     summary: "Sustainable Packaging/Service Design/2025",
     heroImage: {
-      src: "/images/case-studies/good-pistachios/hero.jpg",
+      src: "/images/case-studies/Bag in sky with Pistachios.png",
       alt: "Good Pistachios packaging bag with pistachios falling into it",
     },
     brief:
@@ -632,7 +632,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/problem-definition.jpg",
+          src: "/images/case-studies/Crop of 4Ws.png",
           alt: "Problem definition chart covering the pistachio supply chain, stakeholders, and industry problems",
         },
         caption:
@@ -647,7 +647,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/journey-map.jpg",
+          src: "/images/case-studies/good-pistachios/Food Journey Map Group 13 Ekin Su-Sebastian.png",
           alt: "Pistachio snack journey map outlining critical points across the supply chain",
         },
         caption:
@@ -659,7 +659,7 @@ export const caseStudies: CaseStudy[] = [
         imageSide: "left",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/persona.jpg",
+          src: "/images/case-studies/good-pistachios/Persona.png",
           alt: "Target Users and Personas: Marta, Alessandro, and Giovanna, with their goals for a sustainable pistachio product",
         },
         text: "Once we understood the supply chain we also studied the main customers of pistachios in America, to the left are personas that are created based on snack pistachio consumer data",
@@ -671,8 +671,8 @@ export const caseStudies: CaseStudy[] = [
         type: "imageRow",
         fit: "contain",
         images: [
-          { src: "/images/case-studies/good-pistachios/design-concept-sketch-1.jpg", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
-          { src: "/images/case-studies/good-pistachios/design-concept-sketch-2.jpg", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
+          { src: "/images/case-studies/good-pistachios/Product Sketch 1.png", alt: "Design concept sketch of a resealable shipping bag with QR code tracking" },
+          { src: "/images/case-studies/good-pistachios/Product Sketch 2.png", alt: "Design concept sketch of a two-compartment tray with sliding divider" },
         ],
         caption:
           "Our team decided that we would have the most impact on pistachio waste by creating a consumer facing design intervention. we began designing different packaging solutions that address how a consumer can mitigate the waste that is created from snack pistachios",
@@ -682,7 +682,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/concept-sheet.jpg",
+          src: "/images/case-studies/good-pistachios/Concept Sheet Final.png",
           alt: "Concept sheet covering morphology, technology, and function of the Good Pistachios packaging system",
         },
         caption:
@@ -692,7 +692,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/packaging-render.jpg",
+          src: "/images/case-studies/good-pistachios/Bag Transparent (Bright Edit).png",
           alt: "3D render of the Good Pistachios packaging",
         },
         caption: "Along with design 3D renders of the packaging were created to communicate the design of packaging",
@@ -703,7 +703,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "cover",
         image: {
-          src: "/images/case-studies/good-pistachios/business-model-canvas.jpg",
+          src: "/images/case-studies/good-pistachios/Business Model Canvas.png",
           alt: "Business Model Canvas for the Good Pistachios packaging service",
         },
         caption:
@@ -713,7 +713,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/competitive-analysis.jpg",
+          src: "/images/case-studies/good-pistachios/Competitive Analysis.png",
           alt: "Competitive analysis comparing Good Pistachios against Wonderful Pistachios and Verde Dorato",
         },
         caption:
@@ -723,7 +723,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "contain",
         image: {
-          src: "/images/case-studies/good-pistachios/system-map.jpg",
+          src: "/images/case-studies/good-pistachios/Food System Journey Map 11-12-2026.png",
           alt: "System map showing stakeholders in the B2B packaging service for pistachio processing plants",
         },
         caption:
@@ -735,7 +735,7 @@ export const caseStudies: CaseStudy[] = [
         type: "fullImage",
         fit: "cover",
         image: {
-          src: "/images/case-studies/good-pistachios/outcome.jpg",
+          src: "/images/case-studies/good-pistachios/Set pices Good Pistascios Transparent.png",
           alt: "Good Pistachios packaging and resealable pouch staged on a table for validation",
         },
         caption:
