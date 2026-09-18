@@ -55,6 +55,25 @@ body {
    the Zilla Slab font import in layout.tsx if it's confirmed unused
    going forward. */
 
+/* Subtle dissolve-in on page load. Applied once via a plain CSS
+   animation on the page's root element — no client JS needed, since
+   navigating to a new route naturally mounts a fresh instance of the
+   page component, which replays the animation. Respects
+   prefers-reduced-motion via the rule below, which overrides any
+   animation-duration sitewide. */
+@keyframes dissolve-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-dissolve-in {
+  animation: dissolve-in 0.6s ease-out;
+}
+
 /* Respect users who prefer reduced motion (accessibility) */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

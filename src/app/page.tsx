@@ -68,7 +68,7 @@ export default function Home() {
                 <li key={project.slug} className="w-full">
                   <Link
                     href={`/case-studies/${project.slug}`}
-                    className="flex flex-col sm:flex-row gap-[18px] sm:gap-[35px] items-start sm:items-center w-full bg-white border-2 border-[rgba(101,52,0,0.25)] rounded-[18px] p-2.5"
+                    className="flex flex-col sm:flex-row gap-[18px] sm:gap-[35px] items-start sm:items-center w-full bg-white border-2 border-[rgba(101,52,0,0.25)] rounded-[18px] p-2.5 transition-transform duration-200 ease-out hover:scale-[1.015] hover:shadow-md"
                   >
                     {caseStudy && (
                       <div className="relative w-full sm:w-[504px] h-[220px] sm:h-[378px] shrink-0 rounded-[10px] overflow-hidden">
