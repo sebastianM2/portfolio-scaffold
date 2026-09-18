@@ -9,7 +9,7 @@ export const siteMeta = {
   title: "Sebastian Alessio Peyton — Product Designer",
   description:
     "Portfolio of Sebastian Alessio Peyton, a strategic designer interested in human craft and innovation. Product design, furniture design, and industrial design projects.",
-  url: "https://example.com", // TODO: update to real deployed domain
+  url: "https://sebastianalessiopeyton.com", 
 };
 
 export const nav = {
