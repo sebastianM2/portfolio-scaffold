@@ -17,7 +17,7 @@ export default function Home() {
               priority
             />
           </div>
-          <p className="font-body font-normal text-[#333] text-2xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] underline decoration-[11%] break-words">
+          <p className="font-body font-normal text-[#333] text-2xl sm:text-[48px] tracking-[4.8px] sm:tracking-[9.6px] underline decoration-[0%] break-words">
             {nav.logoText}
           </p>
         </div>
