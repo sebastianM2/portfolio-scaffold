@@ -310,7 +310,7 @@ export const caseStudies: CaseStudy[] = [
       {
         type: "fullImage",
         fit: "contain",
-        image: { src: "/images/case-studies/piccola-libreria/final-sketch.jpg", alt: "Final concept sketch of the tiered book-sharing structure" },
+        image: { src: "/images/case-studies/piccola-libreria/Rhino Drawing Front.png", alt: "Final concept sketch of the tiered book-sharing structure" },
         caption: "Above is a sketch that would go on to become the final design intervention.",
       },
       {
