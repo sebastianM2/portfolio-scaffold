@@ -188,9 +188,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <Image src="/images/logo.png" alt={nav.logoText} fill className="object-contain" priority />
           </div>
         </Link>
-        <svg className="shrink-0 size-[57.6px] sm:size-[73.8px]" viewBox="0 0 82 82" fill="none" aria-hidden="true">
-          <circle cx="41" cy="41" r="40" stroke="black" strokeWidth="1" />
-        </svg>
+        
       </header>
 
       <main id="main-content" className="px-[21.6px] sm:px-[28.8px] max-w-[1296px] mx-auto flex flex-col gap-[43.2px] py-[32.4px]">
